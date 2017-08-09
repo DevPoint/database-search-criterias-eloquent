@@ -15,7 +15,6 @@ use Devpoint\Database\SearchCriterias\Eloquent\Filter\FilterNotIn;
 use Devpoint\Database\SearchCriterias\Eloquent\Filter\FilterNotNull;
 use Devpoint\Database\SearchCriterias\Eloquent\Sort\SortAttribute;
 use Devpoint\Database\SearchCriterias\Eloquent\Sort\SortGroup;
-use Devpoint\DataBase\SearchCriterias\Core\AbstractSearchCriterias;
 
 class SearchCriterias extends AbstractSearchCriterias {
 
