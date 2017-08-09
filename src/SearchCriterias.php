@@ -81,18 +81,6 @@ class SearchCriterias extends AbstractSearchCriterias {
     protected function resolveAttributeKey($attributeKey)
     {
         $column = $attributeKey;
-        switch ($attributeKey) 
-        {
-            case 'hotel':
-                $column = 'hotel_id';
-                break;
-            case 'booking':
-                $column = 'booking_id';
-                break;
-            case 'enquiry':
-                $column = 'enquiry_id';
-                break;
-        }
         return $column;
     }
 
@@ -579,62 +567,6 @@ class SearchCriterias extends AbstractSearchCriterias {
     public function hasJoins()
     {
         return $this->_hasJoins();
-    }
-
-    /**
-     * Apply all joins
-     *
-     * @deprecated since version 1.5.0
-     *
-     * @param mixed   $model
-     * @param string  $tableName (optional)
-     * @return void
-     */
-    public function applyJoins($model, $tableName)
-    {
-        return $this->_applyJoins($model, $tableName);
-    }
-
-    /**
-     * Apply all filters
-     *
-     * @deprecated since version 1.5.0
-     *
-     * @param  mixed   $model
-     * @param  string  $tableName (optional)
-     * @return mixed
-     */
-    public function applyFilters($model, $tableName)
-    {
-        return $this->_applyFilters($model, $tableName);
-    }
-
-    /**
-     * Apply all sortings
-     *
-     * @deprecated since version 1.5.0
-     *
-     * @param  mixed   $model
-     * @param  string  $tableName (optional)
-     * @return mixed
-     */
-    public function applySortings($model, $tableName)
-    {
-        return $this->_applySortings($model, $tableName);
-    }
-
-    /**
-     * Apply all with-attributes
-     *
-     * @deprecated since version 1.5.0
-     *
-     * @param  mixed   $model
-     * @param  array   $defaultAttributes (optional)
-     * @return mixed
-     */
-    public function applyWithAttributes($model, $defaultAttributes = [])    
-    {
-        return $this->_applyWithAttributes($model, $defaultAttributes);
     }
 
     /**
