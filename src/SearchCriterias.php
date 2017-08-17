@@ -591,6 +591,30 @@ class SearchCriterias extends AbstractSearchCriterias {
     }
 
     /**
+     * Get the default with-Attributes
+     *
+     * @param  string  $eager
+     * @return array
+     */ 
+    protected function _eagerWithAttributes($eager)
+    {
+        $withAttributes = [];
+        return $withAttributes;
+    }
+    
+    /**
+     * Get the default columns
+     *
+     * @param  string  $eager
+     * @return array
+     */ 
+    protected function _eagerColumns($eager)
+    {
+        $columns = ['*'];
+        return $columns;
+    }
+
+    /**
      * Build Eloquent Query for count operation
      *
      * @return mixed
@@ -599,6 +623,22 @@ class SearchCriterias extends AbstractSearchCriterias {
     {
         $query = $this->_applyJoins($this->_model(), $this->_table());
         $query = $this->_applyFilters($query, $this->_table());
+        $query = $this->_applyLimit($query);
+        return $query;
+    }
+
+    /**
+     * Build Eloquent Query for select operations
+     *
+     * @param  string  $eager
+     * @return mixed
+     */ 
+    protected function _query($eager)
+    {
+        $query = $this->_applyJoins($this->_model(), $this->_table());
+        $query = $this->_applyFilters($query, $this->_table());
+        $query = $this->_applySortings($query, $this->_table());
+        $query = $this->_applyWithAttributes($query, $this->_eagerWithAttributes($eager));
         $query = $this->_applyLimit($query);
         return $query;
     }
