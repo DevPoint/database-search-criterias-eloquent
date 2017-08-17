@@ -1,6 +1,6 @@
 <?php
 
-namespace App\LetzteMeile\Station\Database\Eloquent;
+namespace Devpoint\Database\SearchCriterias\Eloquent\Filter;
 
 use Devpoint\Database\SearchCriterias\Eloquent\Filter\AbstractFilter;
 
