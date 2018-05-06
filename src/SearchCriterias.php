@@ -84,6 +84,16 @@ class SearchCriterias extends AbstractSearchCriterias {
     }
 
     /**
+     * Convert primary key to column
+     *
+     * @return string
+     */ 
+    protected function resolvePrimaryKey()
+    {
+        return $this->model->getKeyName();
+    }
+
+    /**
      * @param  string  $column
      * @param  mixed   $operator
      * @param  mixed   $value
@@ -234,7 +244,7 @@ class SearchCriterias extends AbstractSearchCriterias {
      */ 
     public function createFilterId($primaryId)
     {
-        return $this->_createFilterExp($this->resolveAttributeKey('id'), '=', $primaryId);
+        return $this->_createFilterExp($this->resolvePrimaryKey(), '=', $primaryId);
     }
 
     /**
@@ -243,7 +253,7 @@ class SearchCriterias extends AbstractSearchCriterias {
      */ 
     public function createFilterIds($primaryIds)
     {
-        return $this->_createFilterIn($this->resolveAttributeKey('id'), $primaryIds);
+        return $this->_createFilterIn($this->resolvePrimaryKey(), $primaryIds);
     }
 
     /**
